@@ -6,10 +6,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
-<body class="w3-light-grey">
+<link rel="stylesheet" href="style.css">
+<body>
 
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
@@ -28,8 +26,8 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-container w3-white">
       <h4><b>Group Members</b></h4>
       <p>Jackie Birkenstock - jbirkenstock@uri.edu</p>
-      <p>Ben St. Martin - bst-martin@uri.edu</p>
       <p>Nathan Harding - nathan_harding@uri.edu</p>
+      <p>Ben St. Martin - bst-martin@uri.edu</p>
     </div>
   </div><hr>
   
@@ -58,9 +56,9 @@ and is wrapped around the whole page content, except for the footer in this exam
             </a>
           </li>
           <li style="padding-right: 20px;" class="nav-item">
-
+            <a href="#ms4">
               <span class="w3-large">Milestone 4</span><br>
-            
+            </a>
           </li>
           <li style="padding-right: 20px;" class="nav-item">
 
@@ -380,10 +378,161 @@ and is wrapped around the whole page content, except for the footer in this exam
       </div>
       <br>
 
+    </div>
+  </div>
+  <div id="ms4" class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>Milestone 4</b></h3>
+    </div>
+
+    <div class="w3-container">
+      
+      <h5>Tasks</h5>
+
+      <p><strong>(1.)</strong> The first core task our prototype supports is being able to use the website to find a resource such as copper.</p>
+
+      <p><strong>(2.)</strong> The second core task our prototype supports is giving the user resources to refresh themselves as to what they were doing during their last play session.</p>
+
+      <p><strong>(3.)</strong> The third core task our prototype supports is helping players who have just started Subnautica and are unsure of where they should start</p>
+
+      <h5>Prototype</h5>
+
+      <a href="https://www.figma.com/file/x4KLdYQPwU0gbWsZrvJsbV/Deep-Dive?node-id=0%3A1" target="_blank">
+        <p>Link to our Prototype</p>
+        <img class="img-fluid" src="images/prototype.png" alt="Prototype">
+      </a>
+
+      <h6>Instructions</h6>
+
+      <p>Navigate to the Figma page through the link above and click the Start button in the top right corner to begin the prototype.</p>
+
+      <h6>Prototype Tool Choice: Figma</h6>
+      <div class="w3-row">
+        <div class="w3-half w3-container">
+          <img class="img-fluid" src="images/figma.png" alt="Figma Logo">
+        </div>
+        <div class="w3-half w3-container">
+          <ul>
+            <br>
+            <li>Performance felt better than the other recommended tools</li>
+            <li>Very easy to link components to make the prototype function</li>
+            <li>Although it struggled to give user feedback on buttons, none of the given options apparently had that feature</li>
+          </ul>
+        </div>
       </div>
+
+      <h6>Design Choices</h6>
+      <p>
+      <li>Did not implement images into the prototype (used placeholders)</li>
+      There is a large volume of pictures that our website will use, so placeholders were used to save time
+      <li>Not every section of the website is fully implemented</li>
+      Focused on implementing sections related to tasks
+      <li>Few Aesthetics</li>
+      Focused more on getting feedback on functionality and placement over which colors are more appealing
+      <li>Few leaves of the tree design</li>
+      Most of the leaves will give specific info on a fish, resource, etc. so implementing them all would have been a massive time sink
+      <li>Not a large amount of descriptive text</li>
+      Different things like, beacon names, resources names, etc. not added since there was a high volume of individual entries, so placeholders used instead
+      </p>
+
+      <h6>Representative Screenshots</h6>
+      <div class="w3-row">
+        <div class="w3-quarter w3-container">
+          <img class="img-fluid border" src="images/desktop1.png" alt="Screenshot 1">
+        </div>
+        <div class="w3-quarter w3-container">
+          <img class="img-fluid border" src="images/desktop2.png" alt="Screenshot 2">
+        </div>
+        <div class="w3-quarter w3-container">
+          <img class="img-fluid border" src="images/desktop3.png" alt="Screenshot 3">
+        </div>
+        <div class="w3-quarter w3-container">
+          <img class="img-fluid border" src="images/desktop4.png" alt="Screenshot 4">
+        </div>
+      </div>
+      <br>
+
+      <h5>Formative Evaluation</h5>
+
+      <h6>List of Problems</h6>
+
+      <ul>
+        <li> Lack of scroll bars in prototype (P1, P2) (low)</li>
+        <li> Lack of search boxes in prototype (P1, P2) (low)</li>
+        <li> Poor wording (P1, P2, P3) (high)</li>
+        <li> Site description missing (P2) (med)</li>
+        <li> Home page search bar placement ineffective (P2) (med)</li>
+        <li> Home button on all pages missing (P1) (med)</li>
+        <li> Aesthetic details missing (P1,P2) (med)</li>
+        <li> Poor feedback for buttons (P2, P3) (med)</li>
+        <li> Ambiguous/confusing questions (P2, P3) (high)</li>
+        <li> Lack of in depth New Player Section (P3) (high)</li>
+        <li> Lack of images/icons (P1,P2) (high)</li>
+      </ul>
+
+      <p>Using the above problems, we created three groups to categorized and address them.</p>
+
+      <div class="w3-row">
+        <div class="w3-third w3-container">
+          <h6>Navigation Issues</h6>
+          <strong>-Search and Scroll Bars were unintuitive or lacking (P1, P2) (low)</strong>
+          <li>Lack of search boxes to look through different resources</li>
+          <li>Home page Search bar is not prominent enough</li>
+          &emsp; &emsp; -> Recommended to put over buttons rather than below <br>
+          <li>Difficult to see that you are able to scroll through</li>
+          <strong>-Overarching navigation buttons lacking (P1,P2,P3) (high)</strong>
+          <li>Would like home button (P1)</li>
+          &emsp; &emsp; -> Other buttons to view “tree” would be helpful <br>
+          &emsp; &emsp; -> Could address by making sure links appear in sub heading, including the Home button <br>
+          &emsp; &emsp; -> Note: The “Back” button got positive feedback during reviews (P1,P2) Would be good to include in future iterations <br>
+        </div>
+        <div class="w3-third w3-container">
+          <h6>Aesthetic Issues</h6>
+          <strong>-Site is visually lacking (P1, P2) (low)</strong>
+          <li>everything is in black, white, and gray</li>
+          &emsp; &emsp; -> Could fix by adding color, styling, etc. <br>
+          &emsp; &emsp; -> One reviewer recommended adding a color gradient as you scroll down on site or in sub-box <br>
+          <strong>-Images are largely missing from the site (P1,P2) (high)</strong>
+          <li>No image example for such a visual game is a hindrance</li>
+          &emsp; &emsp; -> Additional images would be good to include both for visuals and logic reasons <br>
+        </div>
+        <div class="w3-third w3-container">
+          <h6>Logical Issues</h6>
+          <strong>-Button questions are ambiguous/confusing (P2, P3) (high)</strong>
+          <li>Unclear what the questions meant</li>
+          &emsp; &emsp; -> Could address by using image/icons to add supplementary information <br>
+          &emsp; &emsp; -> Also make questions clearer (ie “Are you new to the game?” rather than “New?”) <br>
+          <strong>-Feedback for Buttons Lacking (P2, P3) (med)</strong>
+          <li>Difficult to know if button has been clicked</li>
+          &emsp; &emsp; -> Fix by adding hover effects and loading as needed <br>
+          <strong>-Wording was poor (P1, P2, P3) (high) </strong>
+          <li>Titles and information wasn’t descriptive enough </li>
+          &emsp; &emsp; -> Make titles and subheadings clearer and more descriptive <br>
+          <strong>-Site description missing (P2) (med) </strong>
+          <li>New users would be confused coming to the site without some information</li>
+          &emsp; &emsp; -> Add a description explaining what the site is about <br>
+          <strong>-Lack of in depth New Player Section (P3) (high) </strong>
+          <li>Explanation of start of game/ where to go was lacking </li>
+          &emsp; &emsp; -> Could improve by adding more information <br>
+          &emsp; &emsp; -> Create more subsections as needed for specific topics <br>
+
+          
+        </div>
+      </div>
+      <br>
+
+      <h5>Contributions</h5>
+
+      <p><strong>Jackie:</strong> Figma prototype (desktops 6, 7, 13, 14), P1 evaluation,  tasks, list of problems/priorities, aesthetic issues</p>
+
+      <p><strong>Nathan:</strong> Figma prototype (desktops 4, 5, 10), P2 evaluation, reviewer summary, naviagation issues, milestone 4 website update</p>
+
+      <p><strong>Ben:</strong> Figma prototype (desktops 1, 2, 3, 4, 11, 12), P3 evaluation, prototype choice explaination, design choices, representative screenshots, logical issues</p>
 
     </div>
   </div>
+
+</div>
   <hr>
 </div>
   
