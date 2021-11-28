@@ -39,7 +39,7 @@ a:hover{
   color: white;
 }
 
-#search{
+#search, #filter{
   padding: 10px;
 }
 
@@ -53,10 +53,26 @@ a:hover{
   margin: 10px;
 }
 
+#item-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
 .w3-content{
   max-width:1000px;
-  min-height: 1000px;
+  min-height: 800px;
   padding-top: 20px;
+}
+
+.info-container {
+  position: relative;
+  color: white;
+  background-color: #1a5fba;
+  border-radius: 15px;
+  border: 2px solid white;
+  padding: 10px;
 }
 
 /* Button Image CSS*/
@@ -74,6 +90,14 @@ a:hover{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.top-left{
+  text-align: left;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+
 }
 
 .to-right {
@@ -105,4 +129,41 @@ a:hover{
     right:0;
     bottom:0;
     left:0;
+}
+
+/*Scroll Menu CSS*/
+
+.vertical-menu {
+  max-height: 450px;
+  border-radius: 15px;
+  overflow-y: auto;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  width: 100%;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.list-element{
+  position: relative;
+  float: left;
+}
+
+.icon{
+  position: relative;
+  float: right;
+  width: 40px;
 }

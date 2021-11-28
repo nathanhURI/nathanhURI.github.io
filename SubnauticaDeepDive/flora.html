@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="jquery-ui.css">
+<link rel="stylesheet" href="css/jquery-ui.css">
 <body id="subsubpage">
 
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32"> 
   <h1><b>SUBNAUTICA DEEP DIVE</b></h1>
-  <h3><a href="index.html">Home</a> > <a href="resources.html">Resources and Crafting</a></h3>
+  <h3><a href="index.html">Home</a> > <a href="resources.html">Resources and Crafting</a> > <a href="flora.html">Flora</a></h3>
 </header>
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
@@ -22,7 +22,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Back Button-->
 <div class="img-container" style="width:200px">
-  <a href="index.html">
+  <a href="resources.html">
   <img id="back" class="top img-fluid button-img border" src="images/sub-buttons/back.png" alt="Back Button">
   <img id="back" class="bottom img-fluid button-img border" src="images/sub-buttons/back-hover.png" alt="Back Button">
   <div class="to-right">Back</div>
@@ -32,11 +32,30 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Grid -->
 <div class="w3-row">
 
+<!-- Buttons -->
+<div class="w3-col 32 s12">
+  <div class="w3-row">
+      <div class="w3-third w3-container">
+
+        <div id="search" class="input-group rounded">
+          <input id="filter" type="search" class="form-control rounded" placeholder="Filter">
+        </div>
+
+        <div class="vertical-menu">
+        </div>
+
+      </div>
+      <div class="w3-third info-container">
+        <h3 id="title"> </h3>
+        <p id="description"></p>
+      </div>
+      <div class="w3-third info-container">
+        <img id="item-image" class="img-fluid button-img" src="images/sub-buttons/plainButton.png" alt="Item Image">
+      </div>
+  </div>
 </div>
 
-<!-- Site Description -->
-<h3 id="description" class="w3-center">What Are Creatures?</h3>
-<p>The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.</p>
+</div>
 
 <!-- END w3-content -->
 </div>
@@ -50,9 +69,11 @@ and is wrapped around the whole page content, except for the footer in this exam
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="js/country_capital_pairs.js"></script>
-<script src="js/capital_game.js"></script>
+<script src="js/site-layout.js"></script>
+<script src="js/flora.js"></script>
+<!--
 <script src="js/jquery-ui.js"></script>
 <script src="js/widget.js"></script>
+--->
 </body>
 </html>
