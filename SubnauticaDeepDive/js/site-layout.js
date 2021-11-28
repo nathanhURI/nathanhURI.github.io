@@ -1,120 +1,3 @@
-//function to generate the scroll menu
-function generateScroll(array){
-  for(var i=0; i<array.length; i++){
-    var element;
-    var image;
-    var url = new URL(window.location.href);
-    var params = new URLSearchParams(url.search);
-    if(params == "element="+array[i].value){
-      element = "<a class='list-element active'>" + array[i].name;
-    }else{
-      element = "<a class='list-element'>" + array[i].name;
-    }
-    image = "<img class=' icon img-fluid' src=" +array[i].imagepath + array[i].value + "_icon.png alt="+ array[i].name +" Icon></a>";
-    $(".vertical-menu").append(element + image);
-  }
-}
-
-//function to get the url parameter
-function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-    return false;
-};
-
-//function to see if url parameter is valid
-function isValidParam(array, param){
-  for(var i=0; i<array.length; i++){
-    if(array[i].value == param){
-      return i;
-    }
-  }
-  return -1;
-}
-
-//function to set parmeter to first element in array if parameter was not valid
-function setToFirst(array){
-  var url = new URL(window.location.href);
-  var params = new URLSearchParams(url.search);
-  params.set("element", array[0].value);
-  var newUrl = window.location.href.split('?')[0];
-  window.location.replace(newUrl + "?" + params);
-}
-
-//function to generate the description and image of the parameter item
-function generateDescImg(array){
-  var element = getUrlParameter("element");
-  var pos = isValidParam(array, element);
-  $("#title").html(array[pos].name);
-  $("#description").html(array[pos].desc);
-  $("#item-image").attr("src",array[pos].imagepath + array[pos].value + "_world.png")
-
-}
-
-//function to generate everything on information page
-function generateInfoPage(array){
-  //populate scroll menu
-  generateScroll(array);
-
-  //handles if there is a parmeter in the URL
-  if(getUrlParameter("element")){
-    var param = getUrlParameter("element");
-    if(isValidParam(array, param) != -1){
-      generateDescImg(array);
-    }else{
-      alert('"' + param + '" is not a valid item for this page. Please try something else.');
-      //set to first element in array
-      setToFirst(array);
-    }
-    //check to make sure parameter exists in
-  }else{
-    //If no parameter, set to 1st element in array
-    setToFirst(array);
-  }
-
-}
-
-//function to change parameter on menu item click
-function changeParam(array, text){
-
-  var param;
-  for(var i=0; i<array.length; i++){
-    if(array[i].name == text){
-      param=array[i].value;
-      break;
-    }
-  }
-
-  var url = new URL(window.location.href);
-  var params = new URLSearchParams(url.search);
-  params.set("element", param);
-  var newUrl = window.location.href.split('?')[0];
-  window.location.replace(newUrl + "?" + params);
-}
-
-//function to update list based on filter
-function filter(text){
-  $(".list-element").each(function(index, value) {
-    var menuText;
-    menuText = $(this).text().toLowerCase();
-      if(menuText.includes(text,0)){
-        $(this).show();
-      }else{ 
-        $(this).hide();
-      }
-  });
-}
-
 var floraElements=[
   {
     "name": "Acid Mushroom",
@@ -186,4 +69,223 @@ var floraElements=[
     "imagepath": "images/plants/",
     "desc" : "The Table Coral Sample is a raw material that can be harvested from Table Corals. Together with Copper Wire and Gold, they are used to manufacture the Computer Chip. This makes the Table Coral Sample a key-component to harvest early on in the game. <br><br>They cannot be harvested by hand. The player must use their Survival Knife/Thermoblade in order to cut the Table Corals, causing the disk to break and drop multiple Table Coral Samples.<br><br>There is no distinction between Table Coral Samples obtained from Green, Purple, Blue or Red Table Corals in the inventory. They will all display an orange Table Coral Sample."
   }
+]
+
+var mineralElements=[
+  {
+    "name": "Cave Sulfur",
+    "value": "cave_sulfur",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: Safe Shallows, Kelp Forest caves <br><br> How to collect: Bait the crash fish out, wait for them to explode, go back to the nest site and pick up the sulfur.<br><br> Used to make: Flares, Laser Cutter, Repair Tool"
+  },
+  {
+    "name": "Copper",
+    "value": "copper",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All biomes. <br><br> How to collect: Break a barnacle/limestone outcrop, and pick up the dropped resource. Alternatively you can use a drill at a large resource deposit. <br><br> Used to make: Copper Wire, Battery, Beacon, Grav Trap"  
+  },
+  {
+    "name": "Diamond",
+    "value": "diamond",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All biomes except for the Safe Shallows and the Kelp Forest. <br><br> How to collect: Break a shale outcrop and pick up the dropped resource. Alternatively you can use a drill at a large resource deposit. <br><br> Used to make: Laser Cutter, Reinforced Dive Suit/Gloves, Modification Station, Prawn Suit."
+  },
+  {
+    "name": "Gold",
+    "value": "gold",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All biomes. <br><br> How to collect: Break either a sandstone or shale outcrop and pick up the dropped resource. Alternatively you can use a drill at a large resource deposit.<br><br> Used to make: Polyaniline, Advanced Wiring Kit, Computer Chip, Scanner Room, Power Transmitter, Fabricator."
+  },
+  {
+    "name": "Lead",
+    "value": "lead",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All of the biomes above a depth of 200 meters. <br><br> How to collect: Break a sandstone outcrop and pick up the dropped resource. Alternatively you can use a drill at a large resource deposit. <br><br> Used to make: Reactor Rod, Radiation Suit/Gloves/Helmet, Moonpool, Nuclear Reactor, Modification Station, Seamoth, Cyclops, Prawn Suit."
+  },
+  {
+    "name": "Lithium",
+    "value": "lithium",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All biomes except for the Safe Shallows and the Kelp Forest. <br><br> How to collect: Break a shale outcrop and pick up the dropped resource. Alternatively you can use a drill at a large resource deposit. <br><br> Used to make: Plasteel Ingot, Ultra High Capacity Tank, Ultra Glide Fins."
+  },
+  {
+    "name": "Nickel",
+    "value": "nickel",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: Exclusively in the Lost River and Inactive Lava Zone. <br><br> How to collect: Nickel is only collectable by using a drill at a large resource deposit. <br><br> Nickel is used to make several vehicle upgrades."
+  },
+  {
+    "name": "Quartz",
+    "value": "quartz",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All biomes. <br><br> How to collect: Quartz appears on the surface of rock faces and can be picked up. It can be easier to find at night when it is illuminated. Alternatively you can use a drill at a large resource deposit. <br><br> Used to make: Glass, Access Hatch, Solar Panel, Storage Locker."
+  },
+  {
+    "name": "Silver",
+    "value": "silver",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All of the biomes above a depth of 200 meters. <br><br> How to collect: Break a barnacle/sandstone outcrop, and pick up the dropped resource. Alternatively you can use a drill at a large resource deposit. <br><br> Used to make: Wiring Kit, High Capacity O2 Tank, Medical Kit Fabricator."
+  },
+  {
+    "name": "Titanium",
+    "value": "titanium",
+    "path": "minerals.html?element=",
+    "imagepath": "images/minerals/",
+    "desc" : "Found: All Biomes. <br><br> How to collect: Break a limestone outcrop and pick up the dropped resource, turn metal salvage into titanium at a fabricator, scan fragments that are already found, and use a drill at a large resource deposit. <br><br> Used to make: Titanium Ingot, Reactor Rod, Standard O2 Tank, High Capacity O2 Tank, Reinforced Dive Suit/Gloves, Fire Extinguisher, Scanner, Survival Knife, Repair Tool, Pathfinder Tool, Laser Cutter, Stasis Rifle, Propulsion Cannon, Light Stick, Seaglide, Beacon, Waterproof Locker, Grav Trap, Creature Decoy, Ultra Glide Fins, Many vehicle upgrades, Almost everything that can be built with the habitat builder."
+  }
+]
+
+var hostileElements=[
+  {
+    "name": "Boneshark",
+    "value": "bonesharks",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Crabsnake",
+    "value": "crabsnake",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Crabsquid",
+    "value": "crabsquid",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Ghost Leviathan",
+    "value": "ghost_leviathan",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Lava Lizard",
+    "value": "lava_lizard",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Reaper Leviathan",
+    "value": "reaper_leviathan",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "River Prowler",
+    "value": "river_prowler",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Sea Dragon Leviathan",
+    "value": "sea_dragon_leviathan",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Stalker",
+    "value": "stalker",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Warper",
+    "value": "warper",
+    "path": "hostile.html?element=",
+    "imagepath": "images/hostile/",
+    "desc" : " Hostile monmon temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  }
+]
+
+var nonhostileElements=[
+  {
+    "name": "Bladderfish",
+    "value": "bladderfish",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Cuddlefish",
+    "value": "cuddlefish",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Gasopod",
+    "value": "gasopod",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Ghostray",
+    "value": "ghostray",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Hoverfish",
+    "value": "hoverfish",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Jellyray",
+    "value": "jellyray",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Peeper",
+    "value": "peeper",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Rabbit Ray",
+    "value": "rabbit_ray",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Sea Emperor Leviathan",
+    "value": "sea_emperor_leviathan",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
+  {
+    "name": "Skyray",
+    "value": "skyray",
+    "path": "nonhostile.html?element=",
+    "imagepath": "images/nonhostile/",
+    "desc" : " Non-Hostile firendos temp Acid Mushrooms are a hazardous species of flora. They are used as a raw material to manufacture Batteries. <br><br>The player can pick them by hand. The player can also strike one with a Survival Knife to kill it and collect four Acid Mushroom Spores, which releases acid into the water that can cause damage to the player, structures, and nearby fauna and flora. <br><br> The Acid Mushroom and its spores can be planted in an Exterior Growbed or an Alien Containment."
+  },
 ]

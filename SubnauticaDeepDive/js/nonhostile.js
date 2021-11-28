@@ -10,7 +10,7 @@ function generateScroll(array){
     }else{
       element = "<a class='list-element'>" + array[i].name;
     }
-    image = "<img class=' icon img-fluid' src=" +array[i].imagepath + array[i].value + "_icon.png alt="+ array[i].name +" Icon></a>";
+    image = "<img class=' icon img-fluid' src=" +array[i].imagepath + array[i].value + ".png alt="+ array[i].name +" Icon></a>";
     $(".vertical-menu").append(element + image);
   }
 }
@@ -57,7 +57,7 @@ function generateDescImg(array){
   var pos = isValidParam(array, element);
   $("#title").html(array[pos].name);
   $("#description").html(array[pos].desc);
-  $("#item-image").attr("src",array[pos].imagepath + array[pos].value + "_world.png")
+  $("#item-image").attr("src",array[pos].imagepath + array[pos].value + ".png")
 
 }
 
@@ -119,11 +119,11 @@ function filter(text){
 // has finished loading in the browser.
 $(document).ready(function() {
 
-  generateInfoPage(floraElements);
+  generateInfoPage(nonhostileElements);
 
   //handles changing the parameter on click of a menu item
   $(document).on('click','.list-element',function() {
-    changeParam(floraElements, $(this).text());
+    changeParam(nonhostileElements, $(this).text());
   });
 
   $(document).on('keyup','#filter',function() {
