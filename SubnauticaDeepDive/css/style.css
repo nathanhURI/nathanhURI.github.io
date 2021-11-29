@@ -1,3 +1,4 @@
+/*General whole page CSS*/
 #homepage{
   font-family: 'Righteous', cursive;
   background-color: #649fb3;
@@ -39,32 +40,44 @@ a:hover{
   color: white;
 }
 
-#search, #filter{
-  padding: 10px;
+.w3-content{
+  max-width:1000px;
+  min-height: 800px;
+  padding-top: 20px;
 }
 
+/*search bar CSS*/
+
+#search, #filter{
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-outline{
+  margin-left: auto;
+  margin-right: auto;
+  width: 93%;
+}
+
+#go-button{
+  width: 7%;
+  text-align: center;
+}
+
+/* Site Descriptions */
 #description{
   padding-top: 10px;
 }
 
+/*Back Button*/
 #back{
   width: 200px;
   border-radius: 15px;
   margin: 10px;
 }
 
-#item-image{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-}
-
-.w3-content{
-  max-width:1000px;
-  min-height: 800px;
-  padding-top: 20px;
-}
+/*Information Displays*/
 
 .info-container {
   position: relative;
@@ -73,6 +86,13 @@ a:hover{
   border-radius: 15px;
   border: 2px solid white;
   padding: 10px;
+}
+
+#item-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
 }
 
 /* Button Image CSS*/

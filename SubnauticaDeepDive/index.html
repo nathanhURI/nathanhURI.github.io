@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="jquery-ui.css">
+<link rel="stylesheet" href="css/jquery-ui.css">
 <body id="homepage">
 
 <!-- Header -->
@@ -21,11 +21,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Search Bar-->
 <div id="search" class="input-group rounded">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-  aria-describedby="search-addon" />
-  <span class="input-group-text border-0" id="search-addon">
-    <i class="fas fa-search">Go</i>
-  </span>
+  <div class='ui-widget form-outline'>
+    <input id="home-search" type="text" class="form-control rounded" placeholder="Search">
+  </div>
+    <button class="input-group-text border" id="go-button">Go</button>
 </div>
 
 <!-- Grid -->
@@ -81,23 +80,24 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Site Description -->
 <h3 id="description" class="w3-center">What Is This Website?</h3>
-<p>The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.</p>
+<p>This website is a resource created by players of subnautica to help new players and potentially returning players to better enjoy Subnautica through reducing some of the stress of finding information. It starts off with five main categories and branches off to provide more detailed information about specific game elements. There is also a search feature that allows you to look up something from the game and link to that page.</p>
 
 <!-- END w3-content -->
 </div>
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a> and <a href="https://getbootstrap.com/">Boostrap</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a> and <a href="https://getbootstrap.com/">Boostrap.</a> All image and descriptive text are taken/adapted from the <a href="https://subnautica.fandom.com/wiki/Subnautica_Wiki">Subnautica Wiki</a></p>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="jquery/js/jquery-1.9.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="js/site-layout.js"></script>
-<script src="js/deep-dive.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/widget.js"></script>
+<script src="js/search.js"></script>
 </body>
 </html>

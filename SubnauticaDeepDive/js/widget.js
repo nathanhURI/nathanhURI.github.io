@@ -1,9 +1,9 @@
 $( function() {
 
-  //my conversion to make the names field the capitals
+  //my conversion to make the names field the names of items
   var names = [];
-  for(var i = 0; i<pairs.length; i++){
-    names[i] = pairs[i].capital;
+  for(var i = 0; i<allElements.length; i++){
+    names[i] = allElements[i].name;
   }
  
     var accentMap = {
@@ -19,7 +19,7 @@ $( function() {
       return ret;
     };
  
-    $( "#pr2__answer" ).autocomplete({
+    $( "#home-search" ).autocomplete({
       source: function( request, response ) {
         var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
         response( $.grep( names, function( value ) {
