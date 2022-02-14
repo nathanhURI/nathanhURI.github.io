@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<title>The Sandbox</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Anton|Roboto+Mono|Roboto+Slab&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="images/mandalal2.png">
+<link rel="stylesheet" href="style.css" type="text/css">
+
+<body>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content">
+
+<!-- Header -->
+<header id="header" class="w3-panel w3-center w3-opacity w3-light-blue">
+  <h1 id="title" class="w3-animate-top">The Sandbox</h1>
+  
+  <div class="w3-padding-32">
+    <div class="w3-bar">
+      <a href="index.html" id="homeBtn" class="w3-bar-item w3-round-xxlarge w3-button w3-animate-zoom">
+      Home</a>
+      <a href="games.html" id="gamesBtn"class="w3-bar-item w3-round-xxlarge w3-button w3-animate-zoom">
+      Games</a>
+      <a href="projects.html" id="projectsBtn" class="w3-bar-item w3-round-xxlarge w3-button w3-animate-zoom w3-light-grey">
+      Projects</a>
+      <a href="info.html" id="infoBtn"class="w3-bar-item w3-round-xxlarge w3-button w3-animate-zoom">
+      Information</a>
+    </div>
+  </div>
+</header>
+
+<div id="body" class="w3-row-padding w3-animate-zoom"> <!--w3-animate-zoom-->
+  <div class="w3-row-padding w3-center">
+
+    
+    <div class="w3-bar w3-light-grey">
+
+      <div class="w3-dropdown-hover w3-light-grey">
+        <button class="w3-button">Shapes</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-2">
+          <a id="lines" class="w3-bar-item w3-button">Lines</a>
+          <a id="curves" class="w3-bar-item w3-button">Curves</a>
+          <a id="dcurves" class="w3-bar-item w3-button">Double Curves</a>
+          <a id="tris" class="w3-bar-item w3-button">Triangles</a>
+          <a id="quads" class="w3-bar-item w3-button">Quads</a>
+          <a id="circles" class="w3-bar-item w3-button">Circles</a>
+          <a id="squares" class="w3-bar-item w3-button">Squares</a>
+        </div>
+      </div>
+
+      <div class="w3-dropdown-hover">
+        <button class="w3-button">Draw Tools</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-2">
+          <a id="pencil" class="w3-bar-item w3-button">Pencil</a>
+          <a id="marker" class="w3-bar-item w3-button">Marker</a>
+        </div>
+      </div>
+
+      <div class="w3-dropdown-hover">
+        <button class="w3-button">Stroke</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-2">
+          <div class="w3-bar-item w3-button w3-center">
+              <p>Set Stroke Color: </p>
+              <input type="color" id="strokeColor" name="strokeColor" value="#000000"><br><br>
+          </div>
+          <div class="w3-bar-item w3-button w3-center">
+              <label for="strokeT">Stroke Transparency:</label>
+              <input type="number" min="0" max="255" value="255" id="strokeT" name="strokeT"><br><br>
+          </div>
+          <div class="w3-bar-item w3-button w3-center">
+              <label for="strokeWeight">Stroke Weight:</label>
+              <input type="number" min="0" max="20" value="1" id="strokeWeight" name="strokeWeight"><br><br>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-dropdown-hover">
+        <button class="w3-button">Fill</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-2">
+          <div class="w3-bar-item w3-button w3-center">
+              <p>Set Fill Color: </p>
+              <input type="color" id="fillColor" name="fillColor" value="#ffffff"><br><br>
+          </div>
+          <div class="w3-bar-item w3-button w3-center">
+              <label for="fillT">Fill Transparency:</label>
+              <input type="number" min="0" max="255" value="1" id="fillT" name="fillT"><br><br>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-dropdown-hover">
+        <button class="w3-button">Background</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-2">
+          <div class="w3-bar-item w3-button w3-center">
+              <p>Set Background Color: </p>
+              <input type="color" id="backColor" name="backColor" value="#ffffff"><br><br>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-dropdown-hover">
+        <button class="w3-button">Canvas Size</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-2">
+          <div class="w3-bar-item w3-button">
+              <label for="canvasHeight">Height:</label>
+              <input type="number" min="0" max="1200" value="400" id="canvasHeight" name="canvasHeight"><br><br>
+              <label for="canvasWidth">Width:</label>
+              <input type="number" min="0" max="1200" value="400" id="canvasWidth" name="canvasWidth"><br><br>
+          </div>
+          <a id="resizeCanvas" class="w3-bar-item w3-button w3-center">Change Size</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center">
+    <canvas id="mycanvas"></canvas> 
+  </div>
+
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col w3-container m2 l2"><p></p></div>
+      <div class="w3-col w3-container m8 l8">
+      <div id="undo" class="w3-button w3-center w3-light-grey">Undo</div>
+      <p>Shape Count: <span id="shapeCount">0</span></p>
+      <div id="toImage" class="w3-button w3-center w3-light-grey">Export as Image</div>
+      <div class="w3-center" id=downloaded></div>
+      <div>
+        <p>Welcome to Mandala Maker! Press Start to begin.</p>
+        <table class="w3-table-all w3-centered">
+          <tr>
+            <th>Shape/Action</th>
+            <th>Keyboard Shortcut</th>
+          </tr>
+          <tr>
+            <td>Undo</td>
+            <td>U</td>
+          </tr>
+          <tr>
+            <td>Line</td>
+            <td>L</td>
+          </tr>
+          <tr>
+            <td>Curve</td>
+            <td>C</td>
+          </tr>
+          <tr>
+            <td>Double Curve</td>
+            <td>D</td>
+          </tr>
+          <tr>
+            <td>Triangle</td>
+            <td>T</td>
+          </tr>
+          <tr>
+            <td>Quadrilateral</td>
+            <td>Q</td>
+          </tr>
+          <tr>
+            <td>Circle</td>
+            <td>E</td>
+          </tr>
+          <tr>
+            <td>Square</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td>Pencil Tool</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>Marker Tool</td>
+            <td>M</td>
+          </tr>
+        </table><br><br>
+        <p>Stroke refers to the lines themselves. Fill refers to the color inside certain shapes (like circles and squares). Background is the background color. Make sure to keep transparency values between 0 and 255. You can also resize the canvas to whatever you want, but your design won't look the same after changing to a different size because of how things rotate. Also try to keep the shape count low, the program gets laggy when it gets large. The pencil and marker tool are a work in progress, so don't go nuts with em. Also you can check out the original <a href="../CSC106/final.html" target="_blank">here</a> if you want :)</p>
+      </div>
+    </div>
+    </div>
+    <div class="w3-col w3-container m2 l2"><p></p></div>
+
+</div>
+
+<div class="w3-row-padding w3-center">
+  <h1>Example Mandalas</h1>
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/red.png">
+  </div>
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/green.png">
+  </div>
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/mandalal2.png">
+  </div>
+</div>
+
+<div class="w3-row-padding w3-center">
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/magenta.png">
+  </div>
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/mandalal1.png">
+  </div>
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/mandalal3.png">
+  </div>
+</div>
+
+<div class="w3-row-padding w3-center">
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/mandala.jpg">
+  </div>
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/rainbow.png">
+  </div>
+  <div class="w3-col w3-container m4 l4">
+    <img id="mimg" src="images/mandalas/robot.png">
+  </div>
+</div>
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
+<!--- 
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+--->
+<p>Email Me: nathan_harding@my.uri.edu</p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="JavaScripts/animations.js"> </script>
+<script src="JavaScripts/processing.js"></script> 
+<script src="JavaScripts/khan.js"></script>
+
+</body>
+</html>

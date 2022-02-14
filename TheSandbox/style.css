@@ -1,0 +1,58 @@
+
+body{
+	 background-image: url(images/background.jpeg);
+	 overflow-x: hidden;
+	 font-family: 'Roboto Slab', monospace;
+}
+
+h1,h2{
+	 font-family: 'Roboto Mono', monospace;
+	 text-decoration: underline;
+	text-decoration-color: orange;
+}
+
+img{
+	border: solid 3px;
+	border-color:orange;
+	width:50%;
+	float:right;
+	margin-top:10px;
+}
+
+#mimg{
+	border: solid 3px;
+	border-color:orange;
+	width:100%;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.w3-content{
+	max-width:1500px;
+	width:90%;
+	background-color:white;
+	margin-bottom:50px;
+}
+
+#header{
+	padding-top:50px;
+	border: solid 3px;
+	border-color:orange; 
+}
+
+#title{
+	animation-duration: 1.5s;
+}
+
+#homeBtn,#gamesBtn,#projectsBtn,#infoBtn{
+	animation-play-state: paused;
+}
+
+#body{
+	animation-duration: 2s;
+}
+
+#mycanvas{
+	border: solid 3px;
+	border-color:orange;
+}
